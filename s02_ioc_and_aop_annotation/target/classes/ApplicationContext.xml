@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+        <bean name="student" class="com.test.bean.Student" init-method="init"
+              destroy-method="destroy" scope="prototype">
+                                         <!--默认：单例模式，这里：原型模式【每次都是新对象】-->
+
+                <!--依赖注入：基本类型-->
+                <property name="name" value="小米"/>
+                <!--依赖注入:引用对象-->
+                <property name="card" ref="card"/>
+
+                <!--依赖注入:集合-->
+                <property name="map">
+                        <map>
+                                <entry key="语文" value="100.0"/>
+                                <entry key="数学" value="80.0"/>
+                                <entry key="英语" value="95.5"/>
+                        </map>
+                </property>
+
+        </bean>
+
+        <bean name="card" class="com.test.bean.Card"/>
+
+        <!-- aop 测试-->
+        <bean name="aopTest" class="com.test.aop.AopTestBeforeAdvice"/>
+
+        <aop:config>
+                <aop:pointcut id="test111" expression="execution(* com.test.bean.Student.testAOP(String))"/>
+                <aop:advisor advice-ref="aopTest" pointcut-ref="test111"/>
+        </aop:config>
+
+</beans>

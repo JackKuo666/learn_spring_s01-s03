@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="s02_aop_annotation_no_xml" />
+        <module name="s03_mybatis_xml_or_annotation" />
+        <module name="s02_ioc_and_aop_annotation" />
+        <module name="s01_ioc_and_aop_xml" />
+        <module name="s03_mybatis_spring_xml_or_annotation" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="s04_spring_mvc" target="1.8" />
+      <module name="s04spring_mvc" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
